@@ -1,33 +1,34 @@
-class Solution {
+
+
+class Solution
+{
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode *p1=list1,*p2=list2;
-        ListNode *head=new ListNode(NULL,nullptr);
-        ListNode *p3=head;
-        while(p1&&p2){
-            p3->next=new ListNode();
-            p3=p3->next;
-            if(p1->val>p2->val){
-                p3->val=p2->val;
-                p2=p2->next;
+    ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
+    {
+        ListNode *p1 = list1, *p2 = list2, *dummy = new ListNode(-1);
+        ListNode *tail = dummy;
+        while (p1 && p2)
+        {
+            if (p1->val < p2->val)
+            {
+                tail->next = p1;
+                p1 = p1->next;
             }
-            else{
-                p3->val=p1->val;
-                p1=p1->next;
+            else
+            {
+                tail->next = p2;
+                p2 = p2->next;
             }
+            tail = tail->next;
         }
-        while(p1){
-            p3->next=new ListNode();
-            p3=p3->next;
-            p3->val=p1->val;
-            p1=p1->next;
+        if (p1 != nullptr)
+        {
+            tail->next = p1;
         }
-        while(p2){
-            p3->next=new ListNode();
-            p3=p3->next;
-            p3->val=p2->val;
-            p2=p2->next;
+        else
+        {
+            tail->next = p2   ;
         }
-        return head->next;
+        return dummy->next;
     }
 };
