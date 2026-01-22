@@ -1,109 +1,80 @@
-# [Algorithm] LeetCode 0021: 合并两个有序链表 - 穿针引线法的工程实践
+# [Algorithm] LeetCode 21: 合并两个有序链表 - 迭代拼接与递归风险的工程权衡
 
 > **发布时间**: 2026-01-22
-> **标签**: `C++` `LeetCode` `Linked List` `Two Pointers`
+> **标签**: `C++` `LeetCode` `Linked List` `Splicing`
 
 ## 1. 问题背景 (Problem)
 
-**LeetCode #21 合并两个有序链表 (Merge Two Sorted Lists)** 是链表操作的基石，也是归并排序 (Merge Sort) 的核心步骤。
+**LeetCode #21 Merge Two Sorted Lists** 是归并排序 (Merge Sort) 中 "Merge" 步骤的独立实现。
 题目要求将两个升序链表合并为一个新的升序链表。
 
-虽然题目简单，但在追求 **极致性能 (0ms)** 和 **工程规范 (Clean Code)** 的过程中，非常考验对 C++ 指针操作和内存管理的理解。
+**ZJU 考察视角**：
+虽然可以用递归轻松解决，但在系统编程（System Programming）中，我们需要考察对 **栈空间 (Stack Space)** 的敏感度以及 **原地指针操作 (In-place Manipulation)** 的能力。
 
-## 2. 思维误区：深拷贝 (Deep Copy)
+## 2. 解法演进 (Evolution)
 
-初次上手时，容易陷入一种思维定势：
-> "我要创建一个新链表，遍历两个旧链表，谁小就 `new` 一个新节点接上去。"
+* **解法一：递归法 (Recursive)**
+    * *思路*：利用函数调用栈。`list1->next = merge(list1->next, list2)`。
+    * *工程缺陷*：虽然代码简洁，但空间复杂度为 $O(N+M)$（栈深度）。如果链表极长（如 10万节点），会触发 **Stack Overflow**。这在生产环境中是不可控的风险。
 
-**这种做法的缺陷：**
-1.  **空间浪费**：空间复杂度达到 $O(N+M)$。如果链表节点包含大量数据，内存消耗将翻倍。
-2.  **效率低下**：频繁的 `new` 操作极其耗时。
+* **解法二：迭代穿针引线法 (Iterative Splicing) [推荐]**
+    * *思路*：维护一个 `tail` 指针，像拉拉链一样，调整现有节点的 `next` 指向。
+    * *优势*：
+        1.  **空间复杂度 $O(1)$**：仅使用常数级指针变量，无递归开销。
+        2.  **零拷贝 (Zero Copy)**：直接复用原链表内存，不创建新节点 (`new`)，内存效率极高。
 
-**正确思维：穿针引线 (Splicing)**
-我们不需要创建新车厢，只需要做一个“调度员”。通过改变现有节点的 `next` 指针，将两个链表像拉拉链一样“缝”在一起。空间复杂度仅需 $O(1)$。
+## 3. 标准代码 (ZJU Standard Code)
 
-## 3. 核心技巧：虚拟头节点 (Dummy Node)
-
-在处理链表合并时，新链表的**头节点**是不确定的（可能是 list1 的头，也可能是 list2 的头）。
-为了避免写一堆繁琐的边界判断（如 `if (head == nullptr)`），工程上最优雅的解法是引入 **Dummy Node**。
-
-* **定义**：`ListNode* dummy = new ListNode(-1);`
-* **作用**：它作为一个固定的“桩子”，我们只需要维护一个 `tail` 指针永远指向新链表的末尾。
-* **结果**：最后返回 `dummy->next` 即可，无需关心谁是第一个节点。
-
-## 4. 标准代码实现 (C++ Beats 100%)
-
-以下是经过优化的双指针解法，逻辑清晰，无冗余判断。
+采用 **虚拟头节点 (Dummy Node)** + **尾插法**，消除头节点特判逻辑。
 
 ```cpp
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- * int val;
- * ListNode *next;
- * ListNode() : val(0), next(nullptr) {}
- * ListNode(int x) : val(x), next(nullptr) {}
- * ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        // 1. 工程技巧：使用 Dummy Node 简化头节点逻辑
+        // 1. 工程技巧：虚拟头节点 (Dummy Node)
+        // 避免处理 "新链表头是谁" 的边界情况，统一逻辑
         ListNode* dummy = new ListNode(-1);
-        ListNode* tail = dummy; // tail 始终指向合并后链表的尾部
+        ListNode* tail = dummy;
 
-        // 2. 准备双指针
-        ListNode* p1 = list1;
-        ListNode* p2 = list2;
-
-        // 3. 穿针引线 (Splicing)
-        // 只要两个链表都不为空，就持续 PK
-        while (p1 && p2) {
-            if (p1->val < p2->val) {
-                tail->next = p1;    // 谁小，tail 就指向谁
-                p1 = p1->next;      // 只有被选中的指针后移
+        // 2. 穿针引线 (Splicing)
+        // 只要两队都有人，就持续 PK
+        while (list1 && list2) {
+            if (list1->val < list2->val) {
+                tail->next = list1;    // 接入 list1
+                list1 = list1->next;   // list1 指针后移
             } else {
-                tail->next = p2;
-                p2 = p2->next;
+                tail->next = list2;    // 接入 list2
+                list2 = list2->next;   // list2 指针后移
             }
-            tail = tail->next;      // 尾指针永远跟在最后
+            tail = tail->next;         // 尾指针永远指向最新接入的节点
         }
 
-        // 4. 收尾 (O(1) 复杂度)
-        // 循环结束说明有一条链表空了，直接把另一条剩余的“一串”接上即可
-        // 避免了无意义的循环遍历
-        if (p1 != nullptr) {
-            tail->next = p1;
-        } else {
-            tail->next = p2;
-        }
+        // 3. O(1) 快速收尾
+        // 循环结束时，必有一条链表非空。
+        // 直接将剩余的一整串接在 tail 后面，无需遍历。
+        tail->next = (list1 != nullptr) ? list1 : list2;
 
-        // 5. 返回结果并释放 dummy (工程习惯)
+        // 4. 释放 dummy 内存 (C++ RAII 习惯)
         ListNode* result = dummy->next;
-        delete dummy; // 防止内存泄漏
+        delete dummy; 
         return result;
     }
 };
 ```
 
-## 5. 避坑复盘 (Debug Notes)
+## 4. 核心复盘 (Critical Thinking)
 
-在编写过程中，我排查了几个严重的逻辑漏洞：
+### 权衡点：为什么循环结束后不需要 `while`？
+初学者容易写成：
+```cpp
+while(list1) { tail->next = list1; list1 = list1->next; ... } // 冗余操作
+```
+**深度解析**：
+链表本身已经是有序且连接好的。我们做的是“拼接”操作，不是“复制”操作。
+既然 `list1` 剩下的一串都在内存里连着，直接把 `tail->next` 指向 `list1` 当前头节点，整串就都接上了。这是链表区别于数组的巨大优势。
 
-### 坑点一：野指针 (Wild Pointer)
-**错误写法**：`ListNode* head; ListNode* tail = head;`
-**后果**：声明指针未初始化，`head` 指向随机内存地址。后续操作 `tail->next` 直接导致 **Segmentation Fault**。
-**修正**：必须实例化 `new ListNode(-1)`。
+### 内存管理：Dummy Node 的生命周期
+在 LeetCode 刷题中容易忽略 `delete dummy`。但在实际 C++ 工程中，任何 `new` 出来的对象都必须有对应的 `delete`，否则就是 **Memory Leak**。养成手动释放辅助节点的习惯，是合格 C++ 工程师的基本素养。
 
-### 坑点二：双指针移动逻辑
-**错误写法**：在比较大小后，同时让 `p1` 和 `p2` 都向后移动。
-**后果**：会导致较大的那个节点被直接跳过（丢失）。
-**修正**：**谁小移谁**，大的那个指针保持不动，等待下一轮比较。
-
-
-## 6. 性能总结
-* **Time**: $O(N + M)$ - 必须遍历两个链表的所有节点。
-* **Space**: $O(1)$ - 仅使用了 `dummy`, `tail`, `p1`, `p2` 四个指针变量，没有创建任何承载数据的新节点。
-
-> **Takeaway**: 链表问题的核心在于**指针的调度**，而不是内存的分配。能用指针解决的，绝不 `new`。
+## 5. 核心总结 (Takeaway)
+> 链表合并的本质是 **指针重定向 (Pointer Redirection)**。在工程上，为了规避栈溢出风险，**迭代 (Iteration)** 永远优于递归。
