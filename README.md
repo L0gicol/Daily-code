@@ -8,6 +8,7 @@ Record my learning process
 | ------- |
 | [0002-add-two-numbers](https://github.com/L0gicol/Daily-code/tree/master/0002-add-two-numbers) |
 | [0021-merge-two-sorted-lists](https://github.com/L0gicol/Daily-code/tree/master/0021-merge-two-sorted-lists) |
+| [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 | [0206-reverse-linked-list](https://github.com/L0gicol/Daily-code/tree/master/0206-reverse-linked-list) |
 ## Math
 |  |
@@ -28,6 +29,7 @@ Record my learning process
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/L0gicol/Daily-code/tree/master/0001-two-sum) |
+| [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 | [0217-contains-duplicate](https://github.com/L0gicol/Daily-code/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/L0gicol/Daily-code/tree/master/0242-valid-anagram) |
 ## Sorting
@@ -39,4 +41,8 @@ Record my learning process
 |  |
 | ------- |
 | [0242-valid-anagram](https://github.com/L0gicol/Daily-code/tree/master/0242-valid-anagram) |
+## Two Pointers
+|  |
+| ------- |
+| [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 <!---LeetCode Topics End-->
