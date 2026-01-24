@@ -10,6 +10,7 @@ Record my learning process
 | [0021-merge-two-sorted-lists](https://github.com/L0gicol/Daily-code/tree/master/0021-merge-two-sorted-lists) |
 | [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 | [0142-linked-list-cycle-ii](https://github.com/L0gicol/Daily-code/tree/master/0142-linked-list-cycle-ii) |
+| [0160-intersection-of-two-linked-lists](https://github.com/L0gicol/Daily-code/tree/master/0160-intersection-of-two-linked-lists) |
 | [0206-reverse-linked-list](https://github.com/L0gicol/Daily-code/tree/master/0206-reverse-linked-list) |
 ## Math
 |  |
@@ -32,6 +33,7 @@ Record my learning process
 | [0001-two-sum](https://github.com/L0gicol/Daily-code/tree/master/0001-two-sum) |
 | [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 | [0142-linked-list-cycle-ii](https://github.com/L0gicol/Daily-code/tree/master/0142-linked-list-cycle-ii) |
+| [0160-intersection-of-two-linked-lists](https://github.com/L0gicol/Daily-code/tree/master/0160-intersection-of-two-linked-lists) |
 | [0217-contains-duplicate](https://github.com/L0gicol/Daily-code/tree/master/0217-contains-duplicate) |
 | [0242-valid-anagram](https://github.com/L0gicol/Daily-code/tree/master/0242-valid-anagram) |
 ## Sorting
@@ -48,4 +50,5 @@ Record my learning process
 | ------- |
 | [0141-linked-list-cycle](https://github.com/L0gicol/Daily-code/tree/master/0141-linked-list-cycle) |
 | [0142-linked-list-cycle-ii](https://github.com/L0gicol/Daily-code/tree/master/0142-linked-list-cycle-ii) |
+| [0160-intersection-of-two-linked-lists](https://github.com/L0gicol/Daily-code/tree/master/0160-intersection-of-two-linked-lists) |
 <!---LeetCode Topics End-->
