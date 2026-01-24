@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* fast;
+        ListNode* slow;
+        fast = slow = head;
+        int index;
+        while(fast != nullptr && fast->next != nullptr){
+           fast = fast->next->next;
+           slow = slow->next;
+           if(fast == slow){
+            slow = head;
+            while(1){
+                if(slow == fast){
+                    return slow;
+                }
+                slow = slow->next;
+                fast= fast->next;
+            } 
+           }
+        }
+        return nullptr;
+    }
+};
