@@ -3,20 +3,20 @@ public:
     bool isValid(string s) {
         if(s.length()%2 != 0) return false;
         stack <char> S1;
-        for(auto p = s.begin();p != s.end();p++){
-            if(*p == '{' || *p == '[' || *p == '('){
-                S1.push(*p);
+        for(char p: s){
+            if(p == '{' || p == '[' || p == '('){
+                S1.push(p);
             }
             else{
                 if(S1.empty()) return false;
                 char c = S1.top();
-                if(c == '(' && *p == ')'){
+                if(c == '(' && p == ')'){
                     S1.pop();
                 }
-                else if(c == '{' && *p == '}'){
+                else if(c == '{' && p == '}'){
                     S1.pop();
                 }
-                else if(c == '[' && *p == ']'){
+                else if(c == '[' && p == ']'){
                     S1.pop();
                 }
                 else return false;
