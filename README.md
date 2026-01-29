@@ -28,6 +28,7 @@ Record my learning process
 | [0001-two-sum](https://github.com/L0gicol/Daily-code/tree/master/0001-two-sum) |
 | [0027-remove-element](https://github.com/L0gicol/Daily-code/tree/master/0027-remove-element) |
 | [0035-search-insert-position](https://github.com/L0gicol/Daily-code/tree/master/0035-search-insert-position) |
+| [0059-spiral-matrix-ii](https://github.com/L0gicol/Daily-code/tree/master/0059-spiral-matrix-ii) |
 | [0209-minimum-size-subarray-sum](https://github.com/L0gicol/Daily-code/tree/master/0209-minimum-size-subarray-sum) |
 | [0217-contains-duplicate](https://github.com/L0gicol/Daily-code/tree/master/0217-contains-duplicate) |
 | [0704-binary-search](https://github.com/L0gicol/Daily-code/tree/master/0704-binary-search) |
@@ -89,4 +90,12 @@ Record my learning process
 |  |
 | ------- |
 | [0209-minimum-size-subarray-sum](https://github.com/L0gicol/Daily-code/tree/master/0209-minimum-size-subarray-sum) |
+## Matrix
+|  |
+| ------- |
+| [0059-spiral-matrix-ii](https://github.com/L0gicol/Daily-code/tree/master/0059-spiral-matrix-ii) |
+## Simulation
+|  |
+| ------- |
+| [0059-spiral-matrix-ii](https://github.com/L0gicol/Daily-code/tree/master/0059-spiral-matrix-ii) |
 <!---LeetCode Topics End-->
