@@ -17,9 +17,9 @@ private:
 		if(root == nullptr){
 			return 0;
 		}
-		leftdepth = maxdepth(root->left) + 1;
-		rightdepth = maxdepth(root->right) + 1;
-		return (leftdepth>rightdepth)?leftdepth:rightdepth;
+		leftdepth = maxdepth(root->left);
+		rightdepth = maxdepth(root->right);
+		return (leftdepth>rightdepth)?leftdepth + 1 : rightdepth + 1;
 	}
 public:
 	int maxDepth(TreeNode* root) {
