@@ -104,17 +104,21 @@ Record my learning process
 ## Tree
 |  |
 | ------- |
+| [0101-symmetric-tree](https://github.com/L0gicol/Daily-code/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 ## Depth-First Search
 |  |
 | ------- |
+| [0101-symmetric-tree](https://github.com/L0gicol/Daily-code/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 ## Breadth-First Search
 |  |
 | ------- |
+| [0101-symmetric-tree](https://github.com/L0gicol/Daily-code/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 ## Binary Tree
 |  |
 | ------- |
+| [0101-symmetric-tree](https://github.com/L0gicol/Daily-code/tree/master/0101-symmetric-tree) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 <!---LeetCode Topics End-->
