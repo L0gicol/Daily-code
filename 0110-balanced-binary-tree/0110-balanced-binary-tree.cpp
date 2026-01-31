@@ -1,15 +1,18 @@
 class Solution {
 public:
-	int deep(TreeNode* root){
-		if(root == nullptr) return 0;
-		int leftdep = deep(root->left);
-		int rightdep = deep(root->right);
-		return max(leftdep,rightdep)+1;
-		
+	int getHeight(TreeNode* root) {
+		if (root == nullptr) return 0;
+		int leftH = getHeight(root->left);
+		if (leftH == -1) return -1;
+		int rightH = getHeight(root->right);
+		if (rightH == -1) return -1;
+		if (abs(leftH - rightH) > 1) {
+			return -1; 
+		}
+		return max(leftH, rightH) + 1;
 	}
+	
 	bool isBalanced(TreeNode* root) {
-		if(root == nullptr)	return true;
-		if((deep(root->left)-deep(root->right)) * (deep(root->left)-deep(root->right)) > 1) return false;
-		return isBalanced((root->left)) && isBalanced((root->right));
+		return getHeight(root) != -1;
 	}
 };
