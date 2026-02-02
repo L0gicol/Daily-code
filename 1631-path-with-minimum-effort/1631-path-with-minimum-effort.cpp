@@ -35,7 +35,7 @@ public:
 				int ny = cur.y + dy[i];
 				if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
 				int diff = abs(heights[nx][ny] - heights[cur.x][cur.y]);
-				int new_cost = max(cur.cost, diff); // 题目要求路径上的最大高度差
+				int new_cost = max(cur.cost, diff);
 				if(new_cost < dist[nx][ny]){
 					dist[nx][ny] = new_cost;
 					pq.push(State(nx,ny,new_cost));
