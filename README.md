@@ -121,6 +121,7 @@ Record my learning process
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0110-balanced-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0110-balanced-binary-tree) |
 | [0112-path-sum](https://github.com/L0gicol/Daily-code/tree/master/0112-path-sum) |
+| [0547-number-of-provinces](https://github.com/L0gicol/Daily-code/tree/master/0547-number-of-provinces) |
 | [1631-path-with-minimum-effort](https://github.com/L0gicol/Daily-code/tree/master/1631-path-with-minimum-effort) |
 ## Breadth-First Search
 |  |
@@ -129,6 +130,7 @@ Record my learning process
 | [0102-binary-tree-level-order-traversal](https://github.com/L0gicol/Daily-code/tree/master/0102-binary-tree-level-order-traversal) |
 | [0104-maximum-depth-of-binary-tree](https://github.com/L0gicol/Daily-code/tree/master/0104-maximum-depth-of-binary-tree) |
 | [0112-path-sum](https://github.com/L0gicol/Daily-code/tree/master/0112-path-sum) |
+| [0547-number-of-provinces](https://github.com/L0gicol/Daily-code/tree/master/0547-number-of-provinces) |
 | [1091-shortest-path-in-binary-matrix](https://github.com/L0gicol/Daily-code/tree/master/1091-shortest-path-in-binary-matrix) |
 | [1631-path-with-minimum-effort](https://github.com/L0gicol/Daily-code/tree/master/1631-path-with-minimum-effort) |
 ## Binary Tree
@@ -142,9 +144,14 @@ Record my learning process
 ## Union-Find
 |  |
 | ------- |
+| [0547-number-of-provinces](https://github.com/L0gicol/Daily-code/tree/master/0547-number-of-provinces) |
 | [1631-path-with-minimum-effort](https://github.com/L0gicol/Daily-code/tree/master/1631-path-with-minimum-effort) |
 ## Heap (Priority Queue)
 |  |
 | ------- |
 | [1631-path-with-minimum-effort](https://github.com/L0gicol/Daily-code/tree/master/1631-path-with-minimum-effort) |
+## Graph Theory
+|  |
+| ------- |
+| [0547-number-of-provinces](https://github.com/L0gicol/Daily-code/tree/master/0547-number-of-provinces) |
 <!---LeetCode Topics End-->
